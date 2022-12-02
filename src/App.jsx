@@ -1,5 +1,27 @@
 import Form from "./components/Form";
 import Header from "./components/Header";
+import uniqid from "uniqid";
+
+const emptyInfo = 
+{
+  firstName: "",
+  lastName: "",
+  title: "",
+  photo: "",
+  address: "",
+  phone: "",
+  email: "",
+  desc: "",
+}
+
+const emptyExperience = {
+  id: uniqid(),
+  university: "",
+  degree: "",
+  startDate: "",
+  endDate: "",
+}
+
 
 function App() {
   return (
@@ -14,3 +36,4 @@ function App() {
 }
 
 export default App;
+export { emptyExperience, emptyInfo }

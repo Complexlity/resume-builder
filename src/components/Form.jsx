@@ -1,38 +1,18 @@
-import Experience from "./Experience";
 import { useState } from "react";
+import { emptyExperience, emptyInfo } from "../App";
 import uniqid from "uniqid";
+import Experience from "./Experience";
+import PersonalInfo from "./PersonalInfo";
 
 const Form = () => {
-  const [personalInfo, setPersonalInfo] = useState({
-    firstName: "",
-    lastName: "",
-    title: "",
-    photo: "",
-    address: "",
-    phone: "",
-    email: "",
-    desc: "",
-  });
-  const [experience, setExperience] = useState([
-    {
-      id: uniqid(),
-      university: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
-    },
-  ]);
+  const [personalInfo, setPersonalInfo] = useState(emptyInfo);
+  const [experience, setExperience] = useState([{...emptyExperience}]);
 
   function addExperience(e) {
     e.preventDefault();
-    let newObj = {
-      id: uniqid(),
-      university: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
-    };
-    let newExpList = [...experience, newObj];
+    let newData = {...emptyExperience}
+    newData.id = uniqid()
+    let newExpList = [...experience, newData];
     setExperience(newExpList);
   }
 
@@ -46,24 +26,22 @@ const Form = () => {
     }
   }
 
+  function resetAll(e){
+    e.preventDefault()
+    setPersonalInfo(emptyInfo)
+    emptyExperience.id = uniqid()
+    setExperience([emptyExperience])
+  }
+
+  function setInfo(obj){
+    setPersonalInfo(obj)  
+  }
+
   return (
     <form className="form-element mx-auto grid w-full max-w-[900px] gap-8 p-4">
       <div className="personal grid gap-2">
         <h2>Personal Information</h2>
-        <input type="text" placeholder="First name" />
-        <input type="text" placeholder="Last name" />
-        <input type="text" placeholder="Title" />
-        <label className="rounded-md bg-gray-200 px-2 py-2 hover:bg-white">
-          Photo
-          <input className="hidden" type="file" name="Picture or ID" />
-        </label>
-        <input type="text" placeholder="Address" />
-        <input type="number" placeholder="Phone number" />
-        <input type="email" placeholder="Email" />
-        <textarea
-          className="resize-none px-4"
-          placeholder="Description"
-        ></textarea>
+        <PersonalInfo data={personalInfo} setInfo={setInfo} />
       </div>
       <div className="experience grid gap-2">
         <h2>Experience</h2>
@@ -78,7 +56,7 @@ const Form = () => {
       <div className="actions grid gap-2">
         <button className="bg-gray-800">Generate</button>
         <button className="bg-gray-800">Load Example</button>
-        <button className="bg-gray-800 text-white">Reset</button>
+        <button className="bg-gray-800 text-white" onClick={resetAll}>Reset</button>
       </div>
     </form>
   );
