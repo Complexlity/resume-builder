@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="min-h-screen bg-blue-300">
+      <div className="min-h-screen bg-gray-400">
         <Form />
         {/* <Rendered /> */}
       </div>

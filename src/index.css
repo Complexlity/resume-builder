@@ -2,3 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+.form-element input, .form-element textarea {
+  padding: .4rem .5rem;
+  border-radius: .2rem;
+}
+
+.form-element button {
+  width: 100%;
+  padding-block:.5rem;
+  border-radius:.2rem;
+  color:white;
+}
+
+.form-element input:focus, .form-element textarea:focus {
+  /* color: #495057; */
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 .1rem 0.2rem hsl(211, 100%, 50%);
+  }
+  
