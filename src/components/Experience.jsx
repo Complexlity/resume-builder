@@ -18,20 +18,19 @@ const Experience = ({ data, deleteExperience, setExp }) => {
         placeholder="Degree"
         onChange={(e) => setExp({ ...data, degree: e.target.value })}
       />
-      
-          <input
-            onFocus={(e) => e.target.type='date'}
-            
-            placeholder="Start Date"
-            onChange={(e) => {
-                console.log(e.target.value)
-                setExp({ ...data, startDate: e.target.value })}}
-          />
 
       <input
-        
-        onFocus={(e) => e.target.type='date'}
+        placeholder="Start Date"
+        onFocus={(e) => (e.target.type = "date")}
+        onChange={(e) => {
+          console.log(e.target.value);
+          setExp({ ...data, startDate: e.target.value });
+        }}
+      />
+
+      <input
         placeholder="End Date"
+        onFocus={(e) => (e.target.type = "date")}
         onChange={(e) => setExp({ ...data, endDate: e.target.value })}
       />
       <button

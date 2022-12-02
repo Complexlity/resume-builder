@@ -3,10 +3,12 @@ import { emptyExperience, emptyInfo } from "../App";
 import uniqid from "uniqid";
 import Experience from "./Experience";
 import PersonalInfo from "./PersonalInfo";
+import Preview from "./Preview";
 
 const Form = () => {
   const [personalInfo, setPersonalInfo] = useState(emptyInfo);
   const [experience, setExperience] = useState([{ ...emptyExperience }]);
+  const [isPreviewed, setIsPreviewed] = useState(false)
 
   function addExperience(e) {
     e.preventDefault();
@@ -43,8 +45,13 @@ const Form = () => {
     setExperience([...experienceList, obj])
   }
 
+  function TogglePreview(){
+    setIsPreviewed(!isPreviewed)
+  }
+
   return (
-    <form className="form-element mx-auto grid w-full max-w-[900px] gap-8 p-4">
+    <>
+    {!isPreviewed && <form className="form-element mx-auto grid w-full max-w-[900px] gap-8 p-4">
       <div className="personal grid gap-2">
         <h2>Personal Information</h2>
         <PersonalInfo data={personalInfo} setInfo={setInfo} />
@@ -61,19 +68,22 @@ const Form = () => {
             />
           ))}
         </div>
-        <button className="add bg-gray-800" onClick={addExperience}>
+        <button className="bg-gray-800" onClick={addExperience}>
           ADD
         </button>
       </div>
 
-      <div className="actions grid gap-2">
-        <button className="bg-gray-800">Generate</button>
+      <div className="grid gap-2">
+        <button className="bg-gray-800" onClick={TogglePreview}>Preview</button>
         <button className="bg-gray-800">Load Example</button>
         <button className="bg-gray-800 text-white" onClick={resetAll}>
           Reset
         </button>
       </div>
     </form>
+    }
+    {isPreviewed && <Preview personalInfo={personalInfo} experience={experience} TogglePreview={TogglePreview} />}
+    </>
   );
 };
 

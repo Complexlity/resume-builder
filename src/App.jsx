@@ -29,7 +29,6 @@ function App() {
       <Header />
       <div className="min-h-screen bg-gray-400">
         <Form />
-        {/* <Rendered /> */}
       </div>
     </div>
   );
