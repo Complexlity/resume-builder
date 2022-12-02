@@ -6,35 +6,41 @@ import PersonalInfo from "./PersonalInfo";
 
 const Form = () => {
   const [personalInfo, setPersonalInfo] = useState(emptyInfo);
-  const [experience, setExperience] = useState([{...emptyExperience}]);
+  const [experience, setExperience] = useState([{ ...emptyExperience }]);
 
   function addExperience(e) {
     e.preventDefault();
-    let newData = {...emptyExperience}
-    newData.id = uniqid()
+    let newData = { ...emptyExperience };
+    newData.id = uniqid();
     let newExpList = [...experience, newData];
     setExperience(newExpList);
   }
 
   function deleteExperience(id) {
-    let experienceCopy = [...experience]
+    let experienceCopy = [...experience];
     let experienceList = experienceCopy.filter((exp) => exp.id !== id);
-    if(experienceList.length) setExperience(experienceList)
+    if (experienceList.length) setExperience(experienceList);
     else {
-      alert('Must have at least one experience section')
-      return
+      alert("Must have at least one experience section");
+      return;
     }
   }
 
-  function resetAll(e){
-    e.preventDefault()
-    setPersonalInfo(emptyInfo)
-    emptyExperience.id = uniqid()
-    setExperience([emptyExperience])
+  function resetAll(e) {
+    e.preventDefault();
+    setPersonalInfo(emptyInfo);
+    emptyExperience.id = uniqid();
+    setExperience([emptyExperience]);
   }
 
-  function setInfo(obj){
-    setPersonalInfo(obj)  
+  function setInfo(obj) {
+    setPersonalInfo(obj);
+  }
+
+  function setExp(obj) {
+    let experienceCopy = [...experience];
+    let experienceList = experienceCopy.filter((exp) => exp.id !== obj.id);
+    setExperience([...experienceList, obj])
   }
 
   return (
@@ -46,7 +52,14 @@ const Form = () => {
       <div className="experience grid gap-2">
         <h2>Experience</h2>
         <div className="grid gap-2">
-        {experience.map(obj => <Experience key={obj.id} id={obj.id} deleteExperience={deleteExperience} />)}
+          {experience.map((obj) => (
+            <Experience
+              key={obj.id}
+              data={obj}
+              deleteExperience={deleteExperience}
+              setExp={setExp}
+            />
+          ))}
         </div>
         <button className="add bg-gray-800" onClick={addExperience}>
           ADD
@@ -56,7 +69,9 @@ const Form = () => {
       <div className="actions grid gap-2">
         <button className="bg-gray-800">Generate</button>
         <button className="bg-gray-800">Load Example</button>
-        <button className="bg-gray-800 text-white" onClick={resetAll}>Reset</button>
+        <button className="bg-gray-800 text-white" onClick={resetAll}>
+          Reset
+        </button>
       </div>
     </form>
   );

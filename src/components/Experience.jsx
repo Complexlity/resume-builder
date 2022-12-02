@@ -1,18 +1,46 @@
-const Experience = ({ id, deleteExperience }) => {
+const Experience = ({ data, deleteExperience, setExp }) => {
+  const { id, university, degree, startDate, endDate } = data;
 
-    const removeComponent = (e) => {
-        e.preventDefault()
-        deleteExperience(id)
-    }
+  const removeComponent = (e) => {
+    e.preventDefault();
+    deleteExperience(id);
+  };
 
-return (
+  return (
     <>
-<input type="text" placeholder="University name" />
-        <input type="text" placeholder="Degree" />
-        <input type="text" placeholder="Start Date" />
-        <input type="text" placeholder="End Date" />
-        <button onClick={removeComponent} className="delete rounded-md bg-gray-800 py-2">DELETE</button>
-        </>
-)
-}
-export default Experience
+      <input
+        type="text"
+        placeholder="University name"
+        onChange={(e) => setExp({ ...data, university: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Degree"
+        onChange={(e) => setExp({ ...data, degree: e.target.value })}
+      />
+      
+          <input
+            onFocus={(e) => e.target.type='date'}
+            
+            placeholder="Start Date"
+            onChange={(e) => {
+                console.log(e.target.value)
+                setExp({ ...data, startDate: e.target.value })}}
+          />
+
+      <input
+        
+        onFocus={(e) => e.target.type='date'}
+        placeholder="End Date"
+        onChange={(e) => setExp({ ...data, endDate: e.target.value })}
+      />
+      <button
+        onClick={removeComponent}
+        className="delete rounded-md bg-gray-800 py-2"
+      >
+        DELETE
+      </button>
+    </>
+  );
+};
+export default Experience;
