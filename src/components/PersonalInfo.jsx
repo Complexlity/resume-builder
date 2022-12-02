@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { emptyInfo } from "../App";
 const PersonalInfo = ({ data, setInfo }) => {
   const { firstName, lastName, title, photo, address, phone, email, desc } =
     data;

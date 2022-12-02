@@ -1,5 +1,5 @@
-import Form from "./components/Form";
-import Header from "./components/Header";
+import Form from "./Form";
+import Header from "./Header";
 import uniqid from "uniqid";
 
 const emptyInfo = 
@@ -16,10 +16,21 @@ const emptyInfo =
 
 const emptyExperience = {
   id: uniqid(),
-  university: "",
-  degree: "",
+  position:"",
+  company: "",
+  city: "",
   startDate: "",
   endDate: "",
+}
+
+const emptyEducation = {
+  id:uniqid(),
+  university:"",
+  city:"",
+  degree:"",
+  subject:"",
+  startDate:"",
+  endDate:""
 }
 
 
@@ -35,4 +46,4 @@ function App() {
 }
 
 export default App;
-export { emptyExperience, emptyInfo }
+export { emptyExperience, emptyInfo, emptyEducation }

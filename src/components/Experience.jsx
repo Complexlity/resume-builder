@@ -1,5 +1,5 @@
 const Experience = ({ data, deleteExperience, setExp }) => {
-  const { id, university, degree, startDate, endDate } = data;
+  const { id,position, company, city, startDate, endDate } = data;
 
   const removeComponent = (e) => {
     e.preventDefault();
@@ -8,15 +8,22 @@ const Experience = ({ data, deleteExperience, setExp }) => {
 
   return (
     <>
+    
+    <input
+        type="text"
+        placeholder="Position"
+        onChange={(e) => setExp({ ...data, position: e.target.value })}
+      />
+    
       <input
         type="text"
-        placeholder="University name"
-        onChange={(e) => setExp({ ...data, university: e.target.value })}
+        placeholder="Company"
+        onChange={(e) => setExp({ ...data, company: e.target.value })}
       />
       <input
         type="text"
-        placeholder="Degree"
-        onChange={(e) => setExp({ ...data, degree: e.target.value })}
+        placeholder="City"
+        onChange={(e) => setExp({ ...data, city: e.target.value })}
       />
 
       <input
