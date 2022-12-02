@@ -1,6 +1,7 @@
 import Form from "./Form";
 import Header from "./Header";
 import uniqid from "uniqid";
+import Footer from "./Footer";
 
 const emptyInfo = 
 {
@@ -41,6 +42,8 @@ function App() {
       <div className="min-h-screen bg-gray-400">
         <Form />
       </div>
+      <Footer />
+      
     </div>
   );
 }

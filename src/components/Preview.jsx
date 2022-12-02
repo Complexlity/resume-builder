@@ -17,8 +17,18 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
           <h1>Web Developer</h1>
         </header>
         <div className="content-grid grid">
-        <div></div>
-        <div className='bg-gray-300 px-6 pt-6'>
+        <div className='p-6'>
+          <h3>Description</h3>
+          <hr />
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eius iure dignissimos? Voluptatem.</p>
+          <h3>Experience</h3>
+          <hr />
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima temporibus nam explicabo autem assumenda dolor accusantium, quos sint iste excepturi!</p>
+          <h3>Education</h3>
+          <h4></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere voluptates optio natus explicabo quisquam in odit?</p>
+        </div>
+        <div className='bg-gray-300 px-6 pt-5'>
           <img src={image} alt="nothing" className='mx-auto' />
           <h3>Personal Details</h3>
         <hr />
