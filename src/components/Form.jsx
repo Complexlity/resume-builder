@@ -131,6 +131,7 @@ const Form = () => {
         <Preview
           personalInfo={personalInfo}
           experience={experience}
+          education={education}
           TogglePreview={TogglePreview}
         />
       )}
