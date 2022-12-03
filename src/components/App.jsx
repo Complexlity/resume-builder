@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="min-h-screen bg-gray-400">
+      <div className="bg-gray-400 py-4">
         <Form />
       </div>
       <Footer />
