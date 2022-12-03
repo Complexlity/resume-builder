@@ -9,13 +9,11 @@ function formatDate(date) {
 const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
   const { firstName, lastName, title, photo, address, phone, email, desc } =
     personalInfo;
-  console.log(experience);
-  console.log(education);
 
   return (
     <div className="mx-auto max-w-[900px]">
       <div className="previewed flex min-h-[calc(70rem-8.25rem)] flex-col bg-white ">
-        <header className="grid h-[8.25rem] gap-2 bg-sky-300 p-4">
+        <header className="header grid h-[8.25rem] gap-2 p-4">
           <h1 className="text-6xl font-bold">
             {firstName} {lastName}
           </h1>

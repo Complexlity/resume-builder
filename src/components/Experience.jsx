@@ -1,5 +1,5 @@
 const Experience = ({ data, deleteExperience, setExp }) => {
-  const { id,position, company, city, startDate, endDate } = data;
+  const { id, position, company, city, startDate, endDate } = data;
 
   const removeComponent = (e) => {
     e.preventDefault();
@@ -8,29 +8,28 @@ const Experience = ({ data, deleteExperience, setExp }) => {
 
   return (
     <>
-    
-    <input
-      value={position}
+      <input
+        value={position}
         type="text"
         placeholder="Position"
         onChange={(e) => setExp({ ...data, position: e.target.value })}
       />
-    
+
       <input
-      value={company}
+        value={company}
         type="text"
         placeholder="Company"
         onChange={(e) => setExp({ ...data, company: e.target.value })}
       />
       <input
-      value={city}
+        value={city}
         type="text"
         placeholder="City"
         onChange={(e) => setExp({ ...data, city: e.target.value })}
       />
 
       <input
-      value={startDate}
+        value={startDate}
         placeholder="Start Date"
         onFocus={(e) => (e.target.type = "date")}
         onChange={(e) => {
@@ -39,14 +38,14 @@ const Experience = ({ data, deleteExperience, setExp }) => {
       />
 
       <input
-      value={endDate}
+        value={endDate}
         placeholder="End Date"
         onFocus={(e) => (e.target.type = "date")}
         onChange={(e) => setExp({ ...data, endDate: e.target.value })}
       />
       <button
         onClick={removeComponent}
-        className="delete rounded-md bg-red-800 py-2"
+        className="delete rounded-md bg-red-700 py-2 hover:bg-red-800 focus:bg-red-800"
       >
         DELETE
       </button>

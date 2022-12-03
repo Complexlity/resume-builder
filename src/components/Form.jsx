@@ -8,21 +8,21 @@ import Education from "./Education";
 
 const Form = () => {
   const [personalInfo, setPersonalInfo] = useState({ ...emptyInfo });
-  const [experience, setExperience] = useState([{ ...emptyExperience }]);
-  const [education, setEducation] = useState([{ ...emptyEducation }]);
+  const [experience, setExperience] = useState([]);
+  const [education, setEducation] = useState([]);
   const [isPreviewed, setIsPreviewed] = useState(false);
 
   // General Styles
   function resetAll(e) {
     e.preventDefault();
-    if(confirm('Are you sure you want to clear all information?')){
-    setPersonalInfo(emptyInfo);
-    emptyExperience.id = uniqid();
-    setExperience([emptyExperience]);
-    emptyEducation.id = uniqid()
-    setEducation([emptyEducation])
-    setTimeout(() => alert('Reset Success'), 500)
-  }
+    if (confirm("Are you sure you want to clear all information?")) {
+      setPersonalInfo(emptyInfo);
+      emptyExperience.id = uniqid();
+      setExperience([]);
+      emptyEducation.id = uniqid();
+      setEducation([]);
+      setTimeout(() => alert("Reset Success"), 500);
+    }
   }
 
   function TogglePreview() {
@@ -110,7 +110,10 @@ const Form = () => {
                 />
               ))}
             </div>
-            <button className="bg-green-600" onClick={addExperience}>
+            <button
+              className="bg-green-600 hover:bg-green-500 focus:bg-green-500"
+              onClick={addExperience}
+            >
               ADD
             </button>
           </div>
@@ -127,20 +130,29 @@ const Form = () => {
                 />
               ))}
             </div>
-            <button className="bg-green-600" onClick={addEducation}>
+            <button
+              className="bg-green-600 hover:bg-green-500 focus:bg-green-500"
+              onClick={addEducation}
+            >
               ADD
             </button>
           </div>
 
           <div className="grid gap-2">
-            <button className="bg-yellow-600 hover:bg-yellow-500 hover:text-gray-900 hover:opacity-[.8]" onClick={TogglePreview}>
+            <button
+              className="bg-yellow-600 hover:bg-yellow-500 hover:text-gray-900 hover:opacity-[.8]"
+              onClick={TogglePreview}
+            >
               Preview
             </button>
 
             {/* 
             // Todo: Fetch random person from randompersongenerator api
             <button className="bg-gray-800">Load Example</button> */}
-            <button className="bg-red-600 hover:bg-red-500 text-white" onClick={resetAll}>
+            <button
+              className="bg-red-600 text-white hover:bg-red-500"
+              onClick={resetAll}
+            >
               Reset
             </button>
           </div>

@@ -51,7 +51,7 @@ const Education = ({ data, deleteEducation, setEdu }) => {
       />
       <button
         onClick={removeComponent}
-        className="delete rounded-md bg-red-800 py-2"
+        className="delete rounded-md bg-red-700 py-2 hover:bg-red-800 focus:bg-red-800"
       >
         DELETE
       </button>

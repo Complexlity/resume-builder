@@ -2,66 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-.form-element input, .form-element textarea {
-  padding: .4rem .5rem;
-  border-radius: .2rem;
+.form-element input,
+.form-element textarea {
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.2rem;
 }
 
 button {
   width: 100%;
-  padding-block:.5rem;
-  border-radius:.2rem;
-  color:white;
+  padding-block: 0.5rem;
+  border-radius: 0.2rem;
+  color: white;
 }
 
-.form-element input:focus, .form-element textarea:focus {
+.form-element input:focus,
+.form-element textarea:focus {
   /* color: #495057; */
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
-  box-shadow: 0 0 .1rem 0.2rem hsl(211, 99%, 65%);
-  }
-
-  .form-element h2 {
-    font-weight: bold;
-    color:#1d4ed8;
-    font-size:1.2rem
-  }
-
-  .content-grid {
-    grid-template-columns: 1fr 250px;
-  }
-  
-  .previewed h3 {
-    color:#1d4ed8;
-    font-size:1.1rem;
-  
-  }
-
-
-.previewed h3:not(:first-of-type), .previewed h3:only-of-type{
-  margin-top:.5rem
+  box-shadow: 0 0 0.1rem 0.2rem hsl(211, 99%, 65%);
 }
 
-.previewed hr{
-  margin-bottom: .7rem;
+.form-element h2 {
+  font-weight: bold;
+  color: #1d4ed8;
+  font-size: 1.2rem;
 }
 
-.previewed h4{
+.content-grid {
+  grid-template-columns: 1fr 250px;
+}
+
+.previewed .header {
+  background-color: #1d4ed8;
+}
+.previewed h3 {
+  color: #1d4ed8;
+  font-size: 1.1rem;
+}
+
+.previewed h3:not(:first-of-type),
+.previewed h3:only-of-type {
+  margin-top: 0.5rem;
+}
+
+.previewed hr {
+  margin-bottom: 0.7rem;
+}
+
+.previewed h4 {
   font-weight: 500;
 }
 
 .degree {
-  display:grid;
-  grid-template-columns:max-content 1fr;
-  gap:.5rem
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem;
 }
 
-.break-wordss{
+.break-wordss {
   hyphens: auto;
 }
 
-button:focus, button:focus-visible{
-  border:2px solid rgb(122, 121, 121);
-  outline:none
+button:focus,
+button:focus-visible {
+  outline: none;
 }
