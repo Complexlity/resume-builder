@@ -15,15 +15,9 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
     
     <div className="mx-auto max-w-[900px]">
     <button className="preview bg-yellow-600 hover:bg-yellow-500 hover:text-gray-900 hover:opacity-[.8] mb-4 mx-auto" onClick={TogglePreview}>
-    <style>
-    {`@media print {button.preview{display: none;}}`}
-  </style>
           Continue Editing
-        </button><button className="print bg-green-600 hover:bg-green-500 hover:text-gray-900 hover:opacity-[.8] mb-4 mx-auto" onClick={TogglePreview}>
-    <style>
-    {`@media print {button.print{display: none;}}`}
-  </style>
-          Print
+        </button><button className="print bg-green-600 hover:bg-green-500 hover:text-gray-900 hover:opacity-[.8] mb-4 mx-auto" onClick={print}>
+          Get Document
         </button>
       <div className="shadowed previewed flex min-h-[calc(70rem-8.25rem)] flex-col bg-white rounded-lg overflow-hidden ">
         <header className="text-gray-300 header grid h-[8.25rem] gap-2 p-4">

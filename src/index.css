@@ -7,6 +7,7 @@
   body {-webkit-print-color-adjust: exact;}
   .shadowed {box-shadow: none;}
   .main-app {background-color: white;}  
+  button.preview, button.print, .main-header {display:none}
 }
 
 @font-face {
