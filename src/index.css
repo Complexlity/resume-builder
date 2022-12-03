@@ -2,13 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@media print {
+  body {-webkit-print-color-adjust: exact;}
+  .shadowed {box-shadow: none;}
+  .main-app {background-color: white;}  
+}
+
 @font-face {
   font-family: headerFont;
   src: url("./assets/MerriweatherSans-VariableFont_wght.ttf");
 }
 
 .shadowed {
-  box-shadow: 0px 0px 20px 1px rgba(226,232,240,0.55);
+  box-shadow: 0px 0px 10px 1px #cbd5e1;
 }
 
 .header-text {
@@ -31,7 +38,6 @@ button {
 
 .form-element input:focus,
 .form-element textarea:focus {
-  /* color: #495057; */
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
@@ -63,6 +69,7 @@ button {
 
 .previewed hr {
   margin-bottom: 0.7rem;
+  border-top:1.5 px solid hsl(224, 76%, 28%);
 }
 
 .previewed h4 {

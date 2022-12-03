@@ -14,18 +14,26 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
     <>
     
     <div className="mx-auto max-w-[900px]">
-    <button className="bg-yellow-600 hover:bg-yellow-500 hover:text-gray-900 hover:opacity-[.8] mb-4 mx-auto" onClick={TogglePreview}>
+    <button className="preview bg-yellow-600 hover:bg-yellow-500 hover:text-gray-900 hover:opacity-[.8] mb-4 mx-auto" onClick={TogglePreview}>
+    <style>
+    {`@media print {button.preview{display: none;}}`}
+  </style>
           Continue Editing
+        </button><button className="print bg-green-600 hover:bg-green-500 hover:text-gray-900 hover:opacity-[.8] mb-4 mx-auto" onClick={TogglePreview}>
+    <style>
+    {`@media print {button.print{display: none;}}`}
+  </style>
+          Print
         </button>
       <div className="shadowed previewed flex min-h-[calc(70rem-8.25rem)] flex-col bg-white rounded-lg overflow-hidden ">
-        <header className="header grid h-[8.25rem] gap-2 p-4">
+        <header className="text-gray-300 header grid h-[8.25rem] gap-2 p-4">
           <h1 className="text-6xl font-bold">
             {firstName} {lastName}
           </h1>
           <h2 className="text-2xl">{title}</h2>
         </header>
         <div className="content-grid grid flex-1">
-          <div className="px-6 pt-4">
+          <div className="px-6 pt-4 bg-gray-100">
             <h3>Description</h3>
             <hr />
             <p className="break-words italic">{desc} </p>
