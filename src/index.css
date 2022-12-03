@@ -7,6 +7,10 @@
   src: url("./assets/MerriweatherSans-VariableFont_wght.ttf");
 }
 
+.shadowed {
+  box-shadow: 0px 0px 20px 1px rgba(226,232,240,0.55);
+}
+
 .header-text {
   font-family: headerFont;
   font-size: 1.2em;

@@ -11,8 +11,13 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
     personalInfo;
 
   return (
+    <>
+    
     <div className="mx-auto max-w-[900px]">
-      <div className="previewed flex min-h-[calc(70rem-8.25rem)] flex-col bg-white ">
+    <button className="bg-yellow-600 hover:bg-yellow-500 hover:text-gray-900 hover:opacity-[.8] mb-4 mx-auto" onClick={TogglePreview}>
+          Continue Editing
+        </button>
+      <div className="shadowed previewed flex min-h-[calc(70rem-8.25rem)] flex-col bg-white rounded-lg overflow-hidden ">
         <header className="header grid h-[8.25rem] gap-2 p-4">
           <h1 className="text-6xl font-bold">
             {firstName} {lastName}
@@ -47,11 +52,9 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
             <p>{email}</p>
           </div>
         </div>
-        <button className="bg-gray-800" onClick={TogglePreview}>
-          Return
-        </button>
       </div>
     </div>
+    </>
   );
 };
 

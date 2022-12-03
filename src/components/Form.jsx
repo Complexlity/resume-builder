@@ -10,7 +10,7 @@ const Form = () => {
   const [personalInfo, setPersonalInfo] = useState({ ...emptyInfo });
   const [experience, setExperience] = useState([]);
   const [education, setEducation] = useState([]);
-  const [isPreviewed, setIsPreviewed] = useState(false);
+  const [isPreviewed, setIsPreviewed] = useState(true);
 
   // General Styles
   function resetAll(e) {
@@ -88,7 +88,7 @@ const Form = () => {
   return (
     <>
       {!isPreviewed && (
-        <form className="form-element mx-auto grid w-full max-w-[800px] gap-8 rounded-md bg-gray-200 p-4 shadow-sm shadow-slate-200">
+        <form className="form-element shadowed mx-auto grid w-full max-w-[800px] gap-8 rounded-md bg-gray-200 p-4 ">
           <div className="personal grid gap-2">
             <h2>Personal Information</h2>
             <PersonalInfo
