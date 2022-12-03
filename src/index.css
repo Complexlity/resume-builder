@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: headerFont;
+  src: url("./assets/MerriweatherSans-VariableFont_wght.ttf");
+}
+
+.header-text {
+  font-family: headerFont;
+  font-size: 1.2em;
+}
+
 .form-element input,
 .form-element textarea {
   padding: 0.4rem 0.5rem;
