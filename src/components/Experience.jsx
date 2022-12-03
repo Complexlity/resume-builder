@@ -34,7 +34,6 @@ const Experience = ({ data, deleteExperience, setExp }) => {
         placeholder="Start Date"
         onFocus={(e) => (e.target.type = "date")}
         onChange={(e) => {
-          console.log(e.target.value);
           setExp({ ...data, startDate: e.target.value });
         }}
       />
@@ -47,7 +46,7 @@ const Experience = ({ data, deleteExperience, setExp }) => {
       />
       <button
         onClick={removeComponent}
-        className="delete rounded-md bg-gray-800 py-2"
+        className="delete rounded-md bg-red-800 py-2"
       >
         DELETE
       </button>

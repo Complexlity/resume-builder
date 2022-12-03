@@ -10,14 +10,19 @@ const Form = () => {
   const [personalInfo, setPersonalInfo] = useState({ ...emptyInfo });
   const [experience, setExperience] = useState([{ ...emptyExperience }]);
   const [education, setEducation] = useState([{ ...emptyEducation }]);
-  const [isPreviewed, setIsPreviewed] = useState(true);
+  const [isPreviewed, setIsPreviewed] = useState(false);
 
   // General Styles
   function resetAll(e) {
     e.preventDefault();
+    if(confirm('Are you sure you want to clear all information?')){
     setPersonalInfo(emptyInfo);
     emptyExperience.id = uniqid();
     setExperience([emptyExperience]);
+    emptyEducation.id = uniqid()
+    setEducation([emptyEducation])
+    setTimeout(() => alert('Reset Success'), 500)
+  }
   }
 
   function TogglePreview() {
@@ -41,12 +46,9 @@ const Form = () => {
   function deleteExperience(id) {
     let experienceCopy = [...experience];
     let experienceList = experienceCopy.filter((exp) => exp.id !== id);
-    if (experienceList.length) setExperience(experienceList);
-    else {
-      alert("Must have at least one experience section");
-      return;
-    }
+    setExperience(experienceList);
   }
+
   function setExp(obj) {
     let experienceCopy = [...experience];
     let experienceList = experienceCopy.filter((exp) => exp.id !== obj.id);
@@ -73,13 +75,27 @@ const Form = () => {
     setEducation([...educationList, obj]);
   }
 
+  function showImage(e) {
+    let file = URL.createObjectURL(e.target.files[0]);
+    const alerted = personalInfo.photo
+      ? "Image Update Succesful"
+      : "Image Added";
+    let info = { ...personalInfo, photo: file };
+    setInfo(info);
+    alert(alerted);
+  }
+
   return (
     <>
       {!isPreviewed && (
-        <form className="form-element mx-auto grid w-full max-w-[900px] gap-8 p-4">
+        <form className="form-element mx-auto grid w-full max-w-[800px] gap-8 rounded-md bg-gray-200 p-4 shadow-sm shadow-slate-200">
           <div className="personal grid gap-2">
             <h2>Personal Information</h2>
-            <PersonalInfo data={personalInfo} setInfo={setInfo} />
+            <PersonalInfo
+              data={personalInfo}
+              setInfo={setInfo}
+              showImage={showImage}
+            />
           </div>
 
           <div className="experience grid gap-2">
@@ -94,7 +110,7 @@ const Form = () => {
                 />
               ))}
             </div>
-            <button className="bg-gray-800" onClick={addExperience}>
+            <button className="bg-green-600" onClick={addExperience}>
               ADD
             </button>
           </div>
@@ -111,17 +127,20 @@ const Form = () => {
                 />
               ))}
             </div>
-            <button className="bg-gray-800" onClick={addEducation}>
+            <button className="bg-green-600" onClick={addEducation}>
               ADD
             </button>
           </div>
 
           <div className="grid gap-2">
-            <button className="bg-gray-800" onClick={TogglePreview}>
+            <button className="bg-yellow-600 hover:bg-yellow-500 hover:text-gray-900 hover:opacity-[.8]" onClick={TogglePreview}>
               Preview
             </button>
-            <button className="bg-gray-800">Load Example</button>
-            <button className="bg-gray-800 text-white" onClick={resetAll}>
+
+            {/* 
+            // Todo: Fetch random person from randompersongenerator api
+            <button className="bg-gray-800">Load Example</button> */}
+            <button className="bg-red-600 hover:bg-red-500 text-white" onClick={resetAll}>
               Reset
             </button>
           </div>

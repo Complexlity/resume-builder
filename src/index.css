@@ -22,12 +22,20 @@ button {
   box-shadow: 0 0 .1rem 0.2rem hsl(211, 99%, 65%);
   }
 
+  .form-element h2 {
+    font-weight: bold;
+    color:#1d4ed8;
+    font-size:1.2rem
+  }
+
   .content-grid {
     grid-template-columns: 1fr 250px;
   }
   
   .previewed h3 {
-    font-size:1.3rem;
+    color:#1d4ed8;
+    font-size:1.1rem;
+  
   }
 
 
@@ -51,4 +59,9 @@ button {
 
 .break-wordss{
   hyphens: auto;
+}
+
+button:focus, button:focus-visible{
+  border:2px solid rgb(122, 121, 121);
+  outline:none
 }
