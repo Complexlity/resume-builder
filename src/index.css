@@ -21,4 +21,34 @@ button {
   outline: 0;
   box-shadow: 0 0 .1rem 0.2rem hsl(211, 99%, 65%);
   }
+
+  .content-grid {
+    grid-template-columns: 1fr 250px;
+  }
   
+  .previewed h3 {
+    font-size:1.3rem;
+  }
+
+
+.previewed h3:not(:first-of-type), .previewed h3:only-of-type{
+  margin-top:.5rem
+}
+
+.previewed hr{
+  margin-bottom: .7rem;
+}
+
+.previewed h4{
+  font-weight: 500;
+}
+
+.degree {
+  display:grid;
+  grid-template-columns:max-content 1fr;
+  gap:.5rem
+}
+
+.break-wordss{
+  hyphens: auto;
+}

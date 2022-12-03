@@ -10,23 +10,27 @@ const Experience = ({ data, deleteExperience, setExp }) => {
     <>
     
     <input
+      value={position}
         type="text"
         placeholder="Position"
         onChange={(e) => setExp({ ...data, position: e.target.value })}
       />
     
       <input
+      value={company}
         type="text"
         placeholder="Company"
         onChange={(e) => setExp({ ...data, company: e.target.value })}
       />
       <input
+      value={city}
         type="text"
         placeholder="City"
         onChange={(e) => setExp({ ...data, city: e.target.value })}
       />
 
       <input
+      value={startDate}
         placeholder="Start Date"
         onFocus={(e) => (e.target.type = "date")}
         onChange={(e) => {
@@ -36,6 +40,7 @@ const Experience = ({ data, deleteExperience, setExp }) => {
       />
 
       <input
+      value={endDate}
         placeholder="End Date"
         onFocus={(e) => (e.target.type = "date")}
         onChange={(e) => setExp({ ...data, endDate: e.target.value })}
