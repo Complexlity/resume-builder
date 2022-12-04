@@ -21,8 +21,16 @@
 
 .header-text {
   font-family: headerFont;
-  font-size: 1.2em;
+  font-size:1.2em
 }
+
+@media screen and (max-width:400px) {
+.header-text{
+  font-size:.9em
+}
+  
+}
+
 
 .form-element input,
 .form-element textarea {

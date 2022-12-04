@@ -7,7 +7,7 @@ const Header = () => {
         target="_blank"
         className="pointer ml-auto"
       >
-        <img className="w-8" src="../src/assets/github.png" alt="" />
+        <img className="hidden w-8" src="../src/assets/github.png" alt="github icon" />
       </a>{" "}
     </div>
   );
