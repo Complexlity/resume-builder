@@ -5,7 +5,7 @@
 
 @media print {
   body {-webkit-print-color-adjust: exact;}
-  .shadowed {box-shadow: none;}
+  .shadowed {box-shadow: none !important;}
   .main-app {background-color: white;}  
   button.preview, button.print, .main-header {display:none}
 }
