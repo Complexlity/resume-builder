@@ -38,7 +38,7 @@ const PersonalInfo = ({ data, setInfo, showImage }) => {
         onChange={(e) => setInfo({ ...data, address: e.target.value })}
       />
       <input
-        type="number"
+        type="text"
         placeholder="Phone number"
         value={phone}
         onChange={(e) => setInfo({ ...data, phone: e.target.value })}

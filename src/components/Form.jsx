@@ -5,14 +5,15 @@ import Experience from "./Experience";
 import PersonalInfo from "./PersonalInfo";
 import Preview from "./Preview";
 import Education from "./Education";
+import useFetch from "../hooks/useFetch";
 
 const Form = () => {
   const [personalInfo, setPersonalInfo] = useState({ ...emptyInfo });
   const [experience, setExperience] = useState([]);
   const [education, setEducation] = useState([]);
-  const [isPreviewed, setIsPreviewed] = useState(true);
+  const [isPreviewed, setIsPreviewed] = useState(false);
 
-  // General Styles
+  // General Functions
   function resetAll(e) {
     e.preventDefault();
     if (confirm("Are you sure you want to clear all information?")) {
@@ -28,6 +29,7 @@ const Form = () => {
   function TogglePreview() {
     setIsPreviewed(!isPreviewed);
   }
+
 
   // Personal Info Function
   function setInfo(obj) {
@@ -75,6 +77,7 @@ const Form = () => {
     setEducation([...educationList, obj]);
   }
 
+// For Image Preview
   function showImage(e) {
     let file = URL.createObjectURL(e.target.files[0]);
     const alerted = personalInfo.photo
@@ -83,6 +86,82 @@ const Form = () => {
     let info = { ...personalInfo, photo: file };
     setInfo(info);
     alert(alerted);
+  }
+
+  function toggleLoader(e, adding=true){
+    if(adding) {
+      e.target.style.opacity = '0.9'
+    e.target.innerText = ''
+    e.target.innerHTML = `<span className="loader ld-ext-right running" style="display:flex; align-items:center;">Fetching <span class="ld ld-ring ld-spin ml-2"></span> </span>`
+    }
+  else {
+    e.target.innerHTML = 'Load Example'
+    e.target.style.opacity = '1'
+  }
+}
+  
+
+  // Get Random Person
+  async function loadRandomPerson(e){
+    e.preventDefault()
+    toggleLoader(e)
+   let data = await fetch('https://random-data-api.com/api/users/random_user')
+    if(!data.ok) {
+      alert('An error occured')
+      return 
+    }
+   let res = await data.json()
+  
+   let newData = {...emptyInfo}
+  
+  let adr = res.address
+   newData.title = res.employment.title
+   newData.address = `${adr.street_address}, ${adr.state} ${adr.country}`
+   let phoneNumber = res.phone_number
+   phoneNumber = phoneNumber.slice(0, phoneNumber.length - 6)
+   newData.phone = phoneNumber
+   newData.desc = await getRandomQuote() 
+   
+   // Format Address 
+   // Clean the phone number
+
+  data = await fetch('https://randomuser.me/api/')
+  if(!data.ok) {
+    newData.firstName = res.first_name
+    newData.lastName = res.last_name
+    newData.photo = res.avatar
+    newData.email = res.email
+    return 
+  }
+  
+  res = await data.json()
+  res = res.results[0]
+  console.log(res)
+  newData.firstName = res.name.first
+  newData.lastName = res.name.last
+  newData.photo = res.picture.large
+  newData.email = res.email
+   setInfo(newData)
+   setTimeout(() => toggleLoader(e, false), 500)
+  }
+
+  function getRandomCategory(){
+    let array = ['happiness', 'intelligence', 'knowledge', 'success', 'leadership', 'experience']
+    return array[Math.floor(Math.random()*array.length)]
+  }
+
+  async function getRandomQuote(){
+   let category = getRandomCategory()
+   let url = `https://api.api-ninjas.com/v1/quotes?category=${category}`
+   let data = await fetch(url,
+		{
+			method: "GET",
+			headers: {"X-Api-Key": "yLmtS8gC+M6Oozq7uV73GQ==G1KKWXsefDYbi0th"}
+		}
+	);
+  if(!data.ok) return 'I am just some random quote'
+   let res = await data.json()
+   return res[0].quote
   }
 
   return (
@@ -145,10 +224,7 @@ const Form = () => {
             >
               Preview
             </button>
-
-            {/* 
-            // Todo: Fetch random person from randompersongenerator api
-            <button className="bg-gray-800">Load Example</button> */}
+            <button className="bg-blue-800 focus:bg-blue-700 hover:bg-blue-600 text-gray-200 hover:text-gray-900 flex justify-center items-center" onClick={loadRandomPerson} >Load Example</button>
             <button
               className="bg-red-600 text-white hover:bg-red-500"
               onClick={resetAll}

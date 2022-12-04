@@ -43,7 +43,7 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
             ))}
           </div>
           <div className="bg-gray-300 px-6 pt-5">
-            <img src={photo || image} alt="nothing" className="mx-auto" />
+            <img src={photo || image} alt="nothing" className="mx-auto rounded-full" />
             <h3>Personal Details</h3>
             <hr />
             <h4 className="mt-4">Address</h4>

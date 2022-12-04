@@ -91,3 +91,11 @@ button:focus,
 button:focus-visible {
   outline: none;
 }
+
+
+/* For the loader */
+.ld-ext-right>.ld{
+  position:unset;
+  margin:unset;
+  margin-left:4px;
+}
