@@ -167,7 +167,7 @@ const Form = () => {
   return (
     <>
       {!isPreviewed && (
-        <form className="form-element shadowed mx-auto grid w-full max-w-[800px] gap-8 rounded-md bg-gray-200 p-4 ">
+        <form className="form-element shadowed mx-auto grid w-full max-w-[800px] gap-8 rounded-md bg-gray-200 p-6 ">
           <div className="personal grid gap-2">
             <h2>Personal Information</h2>
             <PersonalInfo
