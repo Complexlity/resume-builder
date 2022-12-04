@@ -7,7 +7,7 @@
 
 [Live Preview](https://complexlity-resume-builder.netlify.app/)
 
-## Future features
-- Add responsiveness to preview page
-- Add darkmode
-- Improve general UI
+## Coming soon...
+- Responsiveness (looking good on smaller devices) to preview page
+- Darkmode
+- General UI/UX improvements
