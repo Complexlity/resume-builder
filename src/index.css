@@ -2,17 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @media print {
-  body {-webkit-print-color-adjust: exact;}
-  .shadowed {box-shadow: none !important;}
-  .main-app {background-color: white;}  
-  button.preview, button.print, .main-header {display:none}
+  body {
+    -webkit-print-color-adjust: exact;
+  }
+  .shadowed {
+    box-shadow: none !important;
+  }
+  .main-app {
+    background-color: white;
+  }
+  button.preview,
+  button.print,
+  .main-header {
+    display: none;
+  }
 }
 
 @font-face {
   font-family: headerFont;
   src: url("./assets/MerriweatherSans-VariableFont_wght.ttf");
+}
+
+html {
+  font-size: 80%;
+}
+
+@media (min-width: 600px) {
+  html {
+    font-size: 100%;
+  }
 }
 
 .shadowed {
@@ -21,16 +40,14 @@
 
 .header-text {
   font-family: headerFont;
-  font-size:1.2em
+  font-size: 1.2em;
 }
 
-@media screen and (max-width:400px) {
-.header-text{
-  font-size:.9em
+@media screen and (max-width: 400px) {
+  .header-text {
+    font-size: 0.9em;
+  }
 }
-  
-}
-
 
 .form-element input,
 .form-element textarea {
@@ -61,7 +78,19 @@ button {
 }
 
 .content-grid {
-  grid-template-columns: 1fr 250px;
+  grid-template-columns: 1fr 120px;
+}
+
+@media (min-width: 400px) {
+  .content-grid {
+    grid-template-columns: 1fr 150px;
+  }
+}
+
+@media (min-width: 600px) {
+  .content-grid {
+    grid-template-columns: 1fr 250px;
+  }
 }
 
 .previewed .header {
@@ -79,7 +108,7 @@ button {
 
 .previewed hr {
   margin-bottom: 0.7rem;
-  border-top:1.5 px solid hsl(224, 76%, 28%);
+  border-top: 1.5 px solid hsl(224, 76%, 28%);
 }
 
 .previewed h4 {
@@ -101,10 +130,9 @@ button:focus-visible {
   outline: none;
 }
 
-
 /* For the loader */
-.ld-ext-right>.ld{
-  position:unset;
-  margin:unset;
-  margin-left:4px;
+.ld-ext-right > .ld {
+  position: unset;
+  margin: unset;
+  margin-left: 4px;
 }

@@ -12,50 +12,60 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
 
   return (
     <>
-    
-    <div className="mx-auto max-w-[900px]">
-    <button className="preview bg-yellow-600 hover:bg-yellow-500 hover:text-gray-900 hover:opacity-[.8] mb-4 mx-auto" onClick={TogglePreview}>
+      <div className="mx-auto max-w-[900px]">
+        <button
+          className="preview mx-auto mb-4 bg-yellow-600 hover:bg-yellow-500 hover:text-gray-900 hover:opacity-[.8]"
+          onClick={TogglePreview}
+        >
           Continue Editing
-        </button><button className="print bg-green-600 hover:bg-green-500 hover:text-gray-900 hover:opacity-[.8] mb-4 mx-auto" onClick={print}>
+        </button>
+        <button
+          className="print mx-auto mb-4 bg-green-600 hover:bg-green-500 hover:text-gray-900 hover:opacity-[.8]"
+          onClick={print}
+        >
           Get Document
         </button>
-      <div className="shadowed previewed flex min-h-[calc(70rem-8.25rem)] flex-col bg-white rounded-lg overflow-hidden ">
-        <header className="text-gray-300 header grid h-[8.25rem] gap-2 p-4">
-          <h1 className="text-6xl font-bold">
-            {firstName} {lastName}
-          </h1>
-          <h2 className="text-2xl">{title}</h2>
-        </header>
-        <div className="content-grid grid flex-1">
-          <div className="px-6 pt-4 bg-gray-100">
-            <h3>Description</h3>
-            <hr />
-            <p className="break-words italic">{desc} </p>
-            <h3>Experience</h3>
-            <hr />
-            {experience.map((obj) => (
-              <Experience key={obj.id} data={obj} />
-            ))}
-            <h3>Education</h3>
-            <hr></hr>
-            {education.map((obj) => (
-              <Education key={obj.id} data={obj} />
-            ))}
-          </div>
-          <div className="bg-gray-300 px-6 pt-5">
-            <img src={photo || image} alt="nothing" className="mx-auto rounded-full aspect-square"  />
-            <h3>Personal Details</h3>
-            <hr />
-            <h4 className="mt-4">Address</h4>
-            <p className="break-words">{address}</p>
-            <h4 className="mt-4">Phone Number</h4>
-            <p>{phone}</p>
-            <h4 className="mt-4">Email</h4>
-            <p>{email}</p>
+        <div className="shadowed previewed flex min-h-[calc(70rem-8.25rem)] flex-col overflow-hidden rounded-lg bg-white ">
+          <header className="header grid h-[8.25rem] gap-2 py-4 px-2 text-gray-300 sm:px-4">
+            <h1 className="text-5xl font-bold sm:text-6xl">
+              {firstName} {lastName}
+            </h1>
+            <h2 className="text-2xl">{title}</h2>
+          </header>
+          <div className="content-grid grid flex-1">
+            <div className="bg-gray-100 px-2 pt-4 sm:px-4">
+              <h3>Description</h3>
+              <hr />
+              <p className="break-words italic">{desc} </p>
+              <h3>Experience</h3>
+              <hr />
+              {experience.map((obj) => (
+                <Experience key={obj.id} data={obj} />
+              ))}
+              <h3>Education</h3>
+              <hr></hr>
+              {education.map((obj) => (
+                <Education key={obj.id} data={obj} />
+              ))}
+            </div>
+            <div className="bg-gray-300 px-2 pt-5 sm:px-4">
+              <img
+                src={photo || image}
+                alt={`${firstName || "Person"} ${lastName} image`}
+                className="mx-auto aspect-square w-20 rounded-full sm:w-24"
+              />
+              <h3 className="text-center">Personal Details</h3>
+              <hr />
+              <h4 className="mt-4">Address</h4>
+              <p className="break-words">{address}</p>
+              <h4 className="mt-4">Phone Number</h4>
+              <p>{phone}</p>
+              <h4 className="mt-4">Email</h4>
+              <p>{email}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
