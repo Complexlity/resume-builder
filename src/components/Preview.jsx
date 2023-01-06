@@ -52,7 +52,7 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
               <img
                 src={photo || image}
                 alt={`${firstName || "Person"} ${lastName} image`}
-                className="mx-auto aspect-square w-20 rounded-full sm:w-24"
+                className="mx-auto aspect-square w-20 rounded-full object-cover sm:w-32 "
               />
               <h3 className="text-center">Personal Details</h3>
               <hr />
