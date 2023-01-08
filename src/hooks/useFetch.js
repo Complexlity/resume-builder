@@ -5,7 +5,7 @@ const useFetch = (url) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setData(data))
-      .catch((err) => console.log(err));
+      .catch((err) => alert("Failed To Fetch: " + err.message));
   }, [url]);
   return [data];
 };
