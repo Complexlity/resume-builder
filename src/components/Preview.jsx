@@ -27,13 +27,13 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
         </button>
         <div className="shadowed previewed flex min-h-[calc(70rem-8.25rem)] flex-col overflow-hidden rounded-lg bg-white ">
           <header className="header grid h-[8.25rem] gap-2 py-4 px-2 text-gray-300 sm:px-4">
-            <h1 className="text-5xl font-bold sm:text-6xl">
+            <h1 className="text-4xl font-bold sm:text-6xl">
               {firstName} {lastName}
             </h1>
-            <h2 className="text-2xl">{title}</h2>
+            <h2 className="text-xl sm:text-2xl">{title}</h2>
           </header>
           <div className="content-grid grid flex-1">
-            <div className="bg-gray-100 px-2 pt-4 sm:px-4">
+            <div className="bg-gray-100 px-2 pt-4 text-sm sm:px-4 sm:text-base">
               <h3>Description</h3>
               <hr />
               <p className="break-words italic">{desc} </p>
@@ -48,7 +48,7 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
                 <Education key={obj.id} data={obj} />
               ))}
             </div>
-            <div className="bg-gray-300 px-2 pt-5 sm:px-4">
+            <div className="bg-gray-300 px-2 pt-5 text-sm sm:px-4 sm:text-base">
               <img
                 src={photo || image}
                 alt={`${firstName || "Person"} ${lastName} image`}
@@ -60,8 +60,8 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
               <p className="break-words">{address}</p>
               <h4 className="mt-4">Phone Number</h4>
               <p>{phone}</p>
-              <h4 className="mt-4">Email</h4>
-              <p>{email}</p>
+              <h4 className="mt-4 ">Email</h4>
+              <p className="break-words">{email}</p>
             </div>
           </div>
         </div>
