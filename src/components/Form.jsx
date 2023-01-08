@@ -134,7 +134,6 @@ const Form = () => {
 
     res = await data.json();
     res = res.results[0];
-    console.log(res);
     newData.firstName = res.name.first;
     newData.lastName = res.name.last;
     newData.photo = res.picture.large;
