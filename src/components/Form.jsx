@@ -6,7 +6,6 @@ import PersonalInfo from "./PersonalInfo";
 import Preview from "./Preview";
 import Education from "./Education";
 
-let QUOTE_API_KEY = import.meta.env.QUOTE_API_KEY;
 const Form = () => {
   const [personalInfo, setPersonalInfo] = useState({ ...emptyInfo });
   const [experience, setExperience] = useState([]);
@@ -156,7 +155,7 @@ const Form = () => {
     let url = `https://api.api-ninjas.com/v1/quotes?category=${category}`;
     let data = await fetch(url, {
       method: "GET",
-      headers: { "X-Api-Key": QUOTE_API_KEY },
+      headers: { "X-Api-Key": import.meta.env.VITE_QUOTE_API_KEY },
     });
     if (!data.ok) return "I am just some random quote";
     let res = await data.json();
