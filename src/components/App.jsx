@@ -1,7 +1,6 @@
 import Form from "./Form";
 import Header from "./Header";
 import uniqid from "uniqid";
-import Footer from "./Footer";
 
 const emptyInfo = {
   firstName: "",
@@ -37,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="main-app bg-gray-400 py-6 px-4">
+      <div className="main-app bg-gray-300 py-6 px-4">
         <Form />
       </div>
     </div>

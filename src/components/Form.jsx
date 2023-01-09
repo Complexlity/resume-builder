@@ -5,8 +5,8 @@ import Experience from "./Experience";
 import PersonalInfo from "./PersonalInfo";
 import Preview from "./Preview";
 import Education from "./Education";
-import useFetch from "../hooks/useFetch";
 
+let QUOTE_API_KEY = import.meta.env.QUOTE_API_KEY;
 const Form = () => {
   const [personalInfo, setPersonalInfo] = useState({ ...emptyInfo });
   const [experience, setExperience] = useState([]);
@@ -120,9 +120,6 @@ const Form = () => {
     newData.phone = phoneNumber;
     newData.desc = await getRandomQuote();
 
-    // Format Address
-    // Clean the phone number
-
     data = await fetch("https://randomuser.me/api/");
     if (!data.ok) {
       newData.firstName = res.first_name;
@@ -159,7 +156,7 @@ const Form = () => {
     let url = `https://api.api-ninjas.com/v1/quotes?category=${category}`;
     let data = await fetch(url, {
       method: "GET",
-      headers: { "X-Api-Key": "yLmtS8gC+M6Oozq7uV73GQ==G1KKWXsefDYbi0th" },
+      headers: { "X-Api-Key": QUOTE_API_KEY },
     });
     if (!data.ok) return "I am just some random quote";
     let res = await data.json();
