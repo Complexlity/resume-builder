@@ -5,15 +5,11 @@ const Header = () => {
         Build Your Resume
       </h1>
       <a
-        href="https://github.com/Complexlity"
+        href="https://github.com/Complexlity/eCommerce-site"
         target="_blank"
         className="pointer ml-auto"
       >
-        <img
-          className="hidden w-8"
-          src="../src/assets/github.png"
-          alt="github icon"
-        />
+        <img className="w-8" src="./github.png" alt="github icon" />
       </a>{" "}
     </div>
   );

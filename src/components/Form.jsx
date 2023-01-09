@@ -157,7 +157,8 @@ const Form = () => {
       method: "GET",
       headers: { "X-Api-Key": import.meta.env.VITE_QUOTE_API_KEY },
     });
-    if (!data.ok) return "I am just some random quote";
+    if (!data.ok)
+      return "I am some random quote added here because the api returned an error";
     let res = await data.json();
     return res[0].quote;
   }
