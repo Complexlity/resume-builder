@@ -5,7 +5,7 @@ const Header = () => {
         Build Your Resume
       </h1>
       <a
-        href="https://github.com/Complexlity/eCommerce-site"
+        href="https://github.com/Complexlity/resume-builder"
         target="_blank"
         className="pointer ml-auto"
       >
