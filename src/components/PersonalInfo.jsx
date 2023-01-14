@@ -1,9 +1,11 @@
+// Takes as props the info data as well as functions update (which includes creating image url) to the  data
 const PersonalInfo = ({ data, setInfo, showImage }) => {
   const { firstName, lastName, title, photo, address, phone, email, desc } =
     data;
 
   return (
     <>
+      {/*The input types updates the global data while the delete button removes the particular component from the globals structure entirely  */}
       <input
         type="text"
         placeholder="First name"
@@ -22,6 +24,7 @@ const PersonalInfo = ({ data, setInfo, showImage }) => {
         value={title}
         onChange={(e) => setInfo({ ...data, title: e.target.value })}
       />
+      {/* Collects the image from the user */}
       <label className="rounded-md bg-white px-2 py-2 hover:bg-blue-400">
         Photo
         <input

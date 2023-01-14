@@ -1,12 +1,16 @@
+// Default image in a case where the API fetch fails
 import image from "../assets/avatar.jpg";
 
+// This converts the inputted date (from education and experience components) into readable formats
 function formatDate(date) {
   let arr = date.split("-");
   if (!date) return "";
   return `${arr[1]}/${arr[0]}`;
 }
 
+// Takes in all neccessary data in displays them in the formatted why. It also takes the function to close the preview mode
 const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
+  // Destructures personal info components singly used data
   const { firstName, lastName, title, photo, address, phone, email, desc } =
     personalInfo;
 
@@ -70,6 +74,7 @@ const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
   );
 };
 
+// Takes  in the Experience component and outputs the previewed experience section
 function Experience({ data }) {
   const { position, company, city, startDate, endDate } = data;
   return (
@@ -88,6 +93,7 @@ function Experience({ data }) {
   );
 }
 
+// Takes  in the Education component and outputs the previewed education section
 function Education({ data }) {
   const { university, city, degree, subject, startDate, endDate } = data;
   return (

@@ -2,6 +2,8 @@ import Form from "./Form";
 import Header from "./Header";
 import uniqid from "uniqid";
 
+// Create default data structure to use in our states
+
 const emptyInfo = {
   firstName: "",
   lastName: "",
@@ -44,4 +46,6 @@ function App() {
 }
 
 export default App;
+
+// enables the data structure for use in other programs
 export { emptyExperience, emptyInfo, emptyEducation };

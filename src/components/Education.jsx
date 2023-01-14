@@ -1,6 +1,9 @@
+// Takes as props the education data as well as functions to edit and update the data globally
 const Education = ({ data, deleteEducation, setEdu }) => {
+  // De-structures the education data structure and puts them in variables
   const { id, university, city, degree, subject, startDate, endDate } = data;
 
+  // Prevents page reload associated with form submission
   const removeComponent = (e) => {
     e.preventDefault();
     deleteEducation(id);
@@ -8,6 +11,7 @@ const Education = ({ data, deleteEducation, setEdu }) => {
 
   return (
     <>
+      {/*The input types updates the global data while the delete button removes the particular component from the globals structure entirely  */}
       <input
         value={university}
         type="text"

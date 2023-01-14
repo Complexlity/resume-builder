@@ -1,3 +1,4 @@
+// Displays the blue bold header at the top of all components
 const Header = () => {
   return (
     <div className="main-header flex h-16 items-center justify-center bg-blue-700 px-6 text-center text-3xl font-bold text-gray-200">

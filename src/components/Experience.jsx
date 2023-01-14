@@ -1,6 +1,9 @@
+// Takes as props the experience data as well as functions to edit and update the data globally
 const Experience = ({ data, deleteExperience, setExp }) => {
+  // De-structures the education data structure and puts them in variables
   const { id, position, company, city, startDate, endDate } = data;
 
+  // Prevents page reload associated with form submission
   const removeComponent = (e) => {
     e.preventDefault();
     deleteExperience(id);
@@ -8,6 +11,7 @@ const Experience = ({ data, deleteExperience, setExp }) => {
 
   return (
     <>
+      {/*The input types updates the global data while the delete button removes the particular component from the globals structure entirely  */}
       <input
         value={position}
         type="text"
