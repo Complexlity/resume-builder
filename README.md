@@ -3,8 +3,8 @@
 Application to update resume in real time
 [Live Demo](https://complexlity-resume-builder.netlify.app/) :point_left:
 
-[!Editing Mode](/src/assets/readme-img.png "Editing Mode")
-[!Preview Mode](/src/assets/readme-img2.png "Preview Mode")
+![Editing Mode](/src/assets/readme-img.png "Editing Mode")
+![Preview Mode](/src/assets/readme-img2.png "Preview Mode")
 
 ## Features
 
