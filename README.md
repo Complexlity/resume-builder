@@ -1,15 +1,46 @@
-# RESUME BUILDER
+# Resume Builder
 
-## Technologies
+Application to update resume in real time
+[Live Demo](https://complexlity-resume-builder.netlify.app/) :point_left:
 
-<a href="https://reactjs.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/640px-React-icon.svg.png" alt="drawing" width="40"/></a>
-<a href="https://vitejs.dev/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1039px-Vitejs-logo.svg.png" alt="drawing" width="40"/></a>
-<a href="https://tailwindcss.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png" alt="drawing" width="40"/></a>
+[!Editing Mode](/src/assets/readme-img.png "Editing Mode")
+[!Preview Mode](/src/assets/readme-img2.png "Preview Mode")
 
-[Live Preview](https://complexlity-resume-builder.netlify.app/)
+## Features
 
-## Coming soon...
+- Update data in real time
+- Get random person data
+- Download finished document as PDF
 
-- Responsiveness (looking good on smaller devices) to preview page ✅
-- Darkmode
-- General UI/UX improvements
+## Technologies used
+
+- JavaScript
+- React
+- API
+  --[Random person API 1](https://random-data-api.com)
+  --[Random peron API 2](https://randomuser.me/api/)
+  --[Random Quote API](https://api-ninjas.com/api/quotes)
+- TailwindCSS
+
+## Geting started
+
+### Clone repository
+
+```
+git clone https://github.com/Complexlity/resume-builder.git
+cd resume-builder
+```
+
+### Install dependencies
+
+```
+npm install
+```
+
+### Start Application
+
+```
+npm  run dev
+```
+
+Open the link shown on the terminal in a browser (Usually `http://localhost:5173`)
