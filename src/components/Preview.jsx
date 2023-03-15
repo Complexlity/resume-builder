@@ -1,10 +1,5 @@
 import image from "../assets/avatar.jpg";
-
-function formatDate(date) {
-  let arr = date.split("-");
-  if (!date) return "";
-  return `${arr[1]}/${arr[0]}`;
-}
+import formatDate from "../../utils/formatDate";
 
 const Previewed = ({ personalInfo, experience, education, TogglePreview }) => {
   const { firstName, lastName, title, photo, address, phone, email, desc } =
