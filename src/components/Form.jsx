@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { emptyExperience, emptyInfo, emptyEducation } from "./App";
 import uniqid from "uniqid";
+import { initialState } from "../../utils/initialState";
 import Experience from "./Experience";
 import PersonalInfo from "./PersonalInfo";
 import Preview from "./Preview";
 import Education from "./Education";
+import getRandomPerson from "../../utils/getRandomPerson";
 
 const Form = () => {
+  const { emptyExperience, emptyInfo, emptyEducation } = initialState;
   const [personalInfo, setPersonalInfo] = useState({ ...emptyInfo });
   const [experience, setExperience] = useState([]);
   const [education, setEducation] = useState([]);
@@ -102,65 +104,11 @@ const Form = () => {
   async function loadRandomPerson(e) {
     e.preventDefault();
     toggleLoader(e);
-    let data = await fetch("https://random-data-api.com/api/users/random_user");
-    if (!data.ok) {
-      alert("An error occured");
-      return;
-    }
-    let res = await data.json();
-
-    let newData = { ...emptyInfo };
-
-    let adr = res.address;
-    newData.title = res.employment.title;
-    newData.address = `${adr.street_address}, ${adr.state} ${adr.country}`;
-    let phoneNumber = res.phone_number;
-    phoneNumber = phoneNumber.slice(0, phoneNumber.length - 6);
-    newData.phone = phoneNumber;
-    newData.desc = await getRandomQuote();
-
-    data = await fetch("https://randomuser.me/api/");
-    if (!data.ok) {
-      newData.firstName = res.first_name;
-      newData.lastName = res.last_name;
-      newData.photo = res.avatar;
-      newData.email = res.email;
-      return;
-    }
-
-    res = await data.json();
-    res = res.results[0];
-    newData.firstName = res.name.first;
-    newData.lastName = res.name.last;
-    newData.photo = res.picture.large;
-    newData.email = res.email;
-    setInfo(newData);
+    const { data, error } = await getRandomPerson();
+    if (error) {
+      alert(error.message);
+    } else setInfo(data);
     setTimeout(() => toggleLoader(e, false), 500);
-  }
-
-  function getRandomCategory() {
-    let array = [
-      "happiness",
-      "intelligence",
-      "knowledge",
-      "success",
-      "leadership",
-      "experience",
-    ];
-    return array[Math.floor(Math.random() * array.length)];
-  }
-
-  async function getRandomQuote() {
-    let category = getRandomCategory();
-    let url = `https://api.api-ninjas.com/v1/quotes?category=${category}`;
-    let data = await fetch(url, {
-      method: "GET",
-      headers: { "X-Api-Key": import.meta.env.VITE_QUOTE_API_KEY },
-    });
-    if (!data.ok)
-      return "I am some random quote added here because the api returned an error";
-    let res = await data.json();
-    return res[0].quote;
   }
 
   return (
