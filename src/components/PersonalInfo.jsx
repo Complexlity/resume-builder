@@ -1,6 +1,5 @@
 const PersonalInfo = ({ data, setInfo, showImage }) => {
-  const { firstName, lastName, title, photo, address, phone, email, desc } =
-    data;
+  const { firstName, lastName, title, address, phone, email, desc } = data;
 
   return (
     <>
